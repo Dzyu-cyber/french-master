@@ -10,7 +10,7 @@ import React, { useState, useEffect } from 'react';
 export default function Home({ totalVocab, lastSession, onStartQuiz, onViewManual }) {
   // Load initial states, default to French ➔ English first
   const [direction, setDirection] = useState(lastSession?.direction || 'fr-en');
-  const [mode, setMode] = useState(lastSession?.mode || 'mc');
+  const [mode, setMode] = useState('mc');
   
   // Range selection states
   const [rangeType, setRangeType] = useState('preset'); // 'preset' | 'custom'

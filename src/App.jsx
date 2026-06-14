@@ -45,6 +45,11 @@ export default function App() {
   const [incorrectWords, setIncorrectWords] = useState([]);
   const [isMistakesReviewMode, setIsMistakesReviewMode] = useState(false);
 
+  // --- Scroll to Top on Load/Refresh ---
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   // --- Streak Verification Effect (on startup) ---
   useEffect(() => {
     const todayStr = getTodayDateString();
