@@ -96,7 +96,7 @@ export default function QuizMC({
 
     // 3. Final shuffle of options
     return shuffleArray(Array.from(uniqueOptions));
-  }, [currentWord, direction, rangeWords, allWords, correctTranslation]);
+  }, [currentWord.french, direction]);
 
   // Handle choice selection
   const handleSelect = (choice) => {

@@ -185,6 +185,12 @@ export default function App() {
     }
   };
 
+  // Memoize rangeWords to avoid referential updates causing child re-renders
+  const rangeWords = React.useMemo(() => {
+    if (!sessionConfig) return vocabularyData;
+    return vocabularyData.slice(sessionConfig.range.start - 1, sessionConfig.range.end);
+  }, [sessionConfig]);
+
   // --- Router Render Setup ---
   const renderView = () => {
     switch (view) {
@@ -201,10 +207,6 @@ export default function App() {
       case 'quiz':
         const currentWord = sessionWords[currentWordIndex];
         if (!currentWord) return <div className="card">Loading vocabulary...</div>;
-        
-        const rangeWords = sessionConfig 
-          ? vocabularyData.slice(sessionConfig.range.start - 1, sessionConfig.range.end)
-          : vocabularyData;
 
         if (sessionConfig?.mode === 'typing') {
           return (
