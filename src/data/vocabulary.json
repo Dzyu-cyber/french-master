@@ -1,52 +1,2558 @@
 [
-  { "french": "bonjour", "english": "hello" },
-  { "french": "merci", "english": "thank you" },
-  { "french": "s'il vous plaît", "english": "please" },
-  { "french": "oui", "english": "yes" },
-  { "french": "non", "english": "no" },
-  { "french": "chat", "english": "cat" },
-  { "french": "chien", "english": "dog" },
-  { "french": "maison", "english": "house" },
-  { "french": "école", "english": "school" },
-  { "french": "livre", "english": "book" },
-  { "french": "ami", "english": "friend" },
-  { "french": "famille", "english": "family" },
-  { "french": "eau", "english": "water" },
-  { "french": "pain", "english": "bread" },
-  { "french": "fromage", "english": "cheese" },
-  { "french": "pomme", "english": "apple" },
-  { "french": "voiture", "english": "car" },
-  { "french": "train", "english": "train" },
-  { "french": "ville", "english": "city" },
-  { "french": "pays", "english": "country" },
-  { "french": "temps", "english": "time / weather" },
-  { "french": "jour", "english": "day" },
-  { "french": "nuit", "english": "night" },
-  { "french": "amour", "english": "love" },
-  { "french": "travail", "english": "work" },
-  { "french": "heureux", "english": "happy" },
-  { "french": "triste", "english": "sad" },
-  { "french": "grand", "english": "big" },
-  { "french": "petit", "english": "small" },
-  { "french": "rouge", "english": "red" },
-  { "french": "bleu", "english": "blue" },
-  { "french": "vert", "english": "green" },
-  { "french": "jaune", "english": "yellow" },
-  { "french": "noir", "english": "black" },
-  { "french": "blanc", "english": "white" },
-  { "french": "manger", "english": "to eat" },
-  { "french": "boire", "english": "to drink" },
-  { "french": "dormir", "english": "to sleep" },
-  { "french": "parler", "english": "to speak" },
-  { "french": "comprendre", "english": "to understand" },
-  { "french": "apprendre", "english": "to learn" },
-  { "french": "faire", "english": "to do / to make" },
-  { "french": "aller", "english": "to go" },
-  { "french": "vouloir", "english": "to want" },
-  { "french": "pouvoir", "english": "to be able to" },
-  { "french": "maintenant", "english": "now" },
-  { "french": "toujours", "english": "always" },
-  { "french": "souvent", "english": "often" },
-  { "french": "peut-être", "english": "maybe" },
-  { "french": "hier", "english": "yesterday" }
+  {
+    "french": "6000+",
+    "english": "6000+"
+  },
+  {
+    "french": "je",
+    "english": "I"
+  },
+  {
+    "french": "tu",
+    "english": "you (informal)"
+  },
+  {
+    "french": "il",
+    "english": "he"
+  },
+  {
+    "french": "elle",
+    "english": "she"
+  },
+  {
+    "french": "nous",
+    "english": "we"
+  },
+  {
+    "french": "vous",
+    "english": "you (formal/plural)"
+  },
+  {
+    "french": "ils",
+    "english": "they (masculine/mixed)"
+  },
+  {
+    "french": "elles",
+    "english": "they (feminine)"
+  },
+  {
+    "french": "me",
+    "english": "me/myself"
+  },
+  {
+    "french": "te",
+    "english": "you/yourself"
+  },
+  {
+    "french": "se",
+    "english": "himself/herself/itself"
+  },
+  {
+    "french": "moi",
+    "english": "me"
+  },
+  {
+    "french": "toi",
+    "english": "you"
+  },
+  {
+    "french": "on",
+    "english": "one/we/people"
+  },
+  {
+    "french": "le",
+    "english": "the (masculine)"
+  },
+  {
+    "french": "la",
+    "english": "the (feminine)"
+  },
+  {
+    "french": "les",
+    "english": "the (plural)"
+  },
+  {
+    "french": "un",
+    "english": "a/an (masculine)"
+  },
+  {
+    "french": "une",
+    "english": "a/an (feminine)"
+  },
+  {
+    "french": "être",
+    "english": "to be"
+  },
+  {
+    "french": "avoir",
+    "english": "to have"
+  },
+  {
+    "french": "aller",
+    "english": "to go"
+  },
+  {
+    "french": "faire",
+    "english": "to do/make"
+  },
+  {
+    "french": "venir",
+    "english": "to come"
+  },
+  {
+    "french": "dire",
+    "english": "to say"
+  },
+  {
+    "french": "pouvoir",
+    "english": "can/to be able to"
+  },
+  {
+    "french": "vouloir",
+    "english": "to want"
+  },
+  {
+    "french": "savoir",
+    "english": "to know (facts)"
+  },
+  {
+    "french": "voir",
+    "english": "to see"
+  },
+  {
+    "french": "prendre",
+    "english": "to take"
+  },
+  {
+    "french": "mettre",
+    "english": "to put"
+  },
+  {
+    "french": "donner",
+    "english": "to give"
+  },
+  {
+    "french": "aimer",
+    "english": "to like/love"
+  },
+  {
+    "french": "parler",
+    "english": "to speak"
+  },
+  {
+    "french": "trouver",
+    "english": "to find"
+  },
+  {
+    "french": "comprendre",
+    "english": "to understand"
+  },
+  {
+    "french": "devoir",
+    "english": "must/to have to"
+  },
+  {
+    "french": "passer",
+    "english": "to pass/spend (time)"
+  },
+  {
+    "french": "rester",
+    "english": "to stay"
+  },
+  {
+    "french": "homme",
+    "english": "man"
+  },
+  {
+    "french": "femme",
+    "english": "woman"
+  },
+  {
+    "french": "enfant",
+    "english": "child"
+  },
+  {
+    "french": "temps",
+    "english": "time/weather"
+  },
+  {
+    "french": "jour",
+    "english": "day"
+  },
+  {
+    "french": "chose",
+    "english": "thing"
+  },
+  {
+    "french": "monde",
+    "english": "world"
+  },
+  {
+    "french": "maison",
+    "english": "house"
+  },
+  {
+    "french": "école",
+    "english": "school"
+  },
+  {
+    "french": "travail",
+    "english": "work/job"
+  },
+  {
+    "french": "main",
+    "english": "hand"
+  },
+  {
+    "french": "yeux",
+    "english": "eyes"
+  },
+  {
+    "french": "ami",
+    "english": "friend (masc.)"
+  },
+  {
+    "french": "amie",
+    "english": "friend (fem.)"
+  },
+  {
+    "french": "famille",
+    "english": "family"
+  },
+  {
+    "french": "nom",
+    "english": "name"
+  },
+  {
+    "french": "ville",
+    "english": "city"
+  },
+  {
+    "french": "eau",
+    "english": "water"
+  },
+  {
+    "french": "nourriture",
+    "english": "food"
+  },
+  {
+    "french": "argent",
+    "english": "money"
+  },
+  {
+    "french": "grand",
+    "english": "big/tall"
+  },
+  {
+    "french": "petit",
+    "english": "small/short"
+  },
+  {
+    "french": "bon",
+    "english": "good"
+  },
+  {
+    "french": "mauvais",
+    "english": "bad"
+  },
+  {
+    "french": "nouveau",
+    "english": "new"
+  },
+  {
+    "french": "vieux",
+    "english": "old"
+  },
+  {
+    "french": "beau",
+    "english": "beautiful/handsome"
+  },
+  {
+    "french": "jeune",
+    "english": "young"
+  },
+  {
+    "french": "chaud",
+    "english": "hot"
+  },
+  {
+    "french": "froid",
+    "english": "cold"
+  },
+  {
+    "french": "à",
+    "english": "to/at"
+  },
+  {
+    "french": "de",
+    "english": "of/from"
+  },
+  {
+    "french": "dans",
+    "english": "in"
+  },
+  {
+    "french": "sur",
+    "english": "on"
+  },
+  {
+    "french": "sous",
+    "english": "under"
+  },
+  {
+    "french": "pour",
+    "english": "for"
+  },
+  {
+    "french": "avec",
+    "english": "with"
+  },
+  {
+    "french": "sans",
+    "english": "without"
+  },
+  {
+    "french": "mais",
+    "english": "but"
+  },
+  {
+    "french": "et",
+    "english": "and"
+  },
+  {
+    "french": "ou",
+    "english": "or"
+  },
+  {
+    "french": "parce que",
+    "english": "because"
+  },
+  {
+    "french": "quand",
+    "english": "when"
+  },
+  {
+    "french": "où",
+    "english": "where"
+  },
+  {
+    "french": "comme",
+    "english": "like/as"
+  },
+  {
+    "french": "oui",
+    "english": "yes"
+  },
+  {
+    "french": "non",
+    "english": "no"
+  },
+  {
+    "french": "bonjour",
+    "english": "hello/good morning"
+  },
+  {
+    "french": "salut",
+    "english": "hi/bye"
+  },
+  {
+    "french": "au revoir",
+    "english": "goodbye"
+  },
+  {
+    "french": "merci",
+    "english": "thank you"
+  },
+  {
+    "french": "pardon",
+    "english": "sorry/excuse me"
+  },
+  {
+    "french": "s'il vous plaît",
+    "english": "please"
+  },
+  {
+    "french": "aujourd'hui",
+    "english": "today"
+  },
+  {
+    "french": "hier",
+    "english": "yesterday"
+  },
+  {
+    "french": "demain",
+    "english": "tomorrow"
+  },
+  {
+    "french": "maintenant",
+    "english": "now"
+  },
+  {
+    "french": "très",
+    "english": "very"
+  },
+  {
+    "french": "beaucoup",
+    "english": "a lot/much"
+  },
+  {
+    "french": "trop",
+    "english": "too much"
+  },
+  {
+    "french": "peut-être",
+    "english": "maybe"
+  },
+  {
+    "french": "croire",
+    "english": "to believe"
+  },
+  {
+    "french": "demander",
+    "english": "to ask"
+  },
+  {
+    "french": "penser",
+    "english": "to think"
+  },
+  {
+    "french": "laisser",
+    "english": "to leave / let"
+  },
+  {
+    "french": "entendre",
+    "english": "to hear"
+  },
+  {
+    "french": "regarder",
+    "english": "to look at"
+  },
+  {
+    "french": "répondre",
+    "english": "to answer"
+  },
+  {
+    "french": "rendre",
+    "english": "to return / give back"
+  },
+  {
+    "french": "connaître",
+    "english": "to know (people/places)"
+  },
+  {
+    "french": "paraître",
+    "english": "to seem"
+  },
+  {
+    "french": "arriver",
+    "english": "to arrive / happen"
+  },
+  {
+    "french": "sentir",
+    "english": "to feel / smell"
+  },
+  {
+    "french": "attendre",
+    "english": "to wait"
+  },
+  {
+    "french": "vivre",
+    "english": "to live"
+  },
+  {
+    "french": "chercher",
+    "english": "to search / look for"
+  },
+  {
+    "french": "sortir",
+    "english": "to go out / exit"
+  },
+  {
+    "french": "porter",
+    "english": "to wear / carry"
+  },
+  {
+    "french": "devenir",
+    "english": "to become"
+  },
+  {
+    "french": "entrer",
+    "english": "to enter"
+  },
+  {
+    "french": "écrire",
+    "english": "to write"
+  },
+  {
+    "french": "appeler",
+    "english": "to call"
+  },
+  {
+    "french": "tomber",
+    "english": "to fall"
+  },
+  {
+    "french": "commencer",
+    "english": "to start"
+  },
+  {
+    "french": "montrer",
+    "english": "to show"
+  },
+  {
+    "french": "arrêter",
+    "english": "to stop"
+  },
+  {
+    "french": "voiture",
+    "english": "car"
+  },
+  {
+    "french": "rue",
+    "english": "street"
+  },
+  {
+    "french": "pays",
+    "english": "country"
+  },
+  {
+    "french": "nuit",
+    "english": "night"
+  },
+  {
+    "french": "matin",
+    "english": "morning"
+  },
+  {
+    "french": "soir",
+    "english": "evening"
+  },
+  {
+    "french": "année",
+    "english": "year"
+  },
+  {
+    "french": "mois",
+    "english": "month"
+  },
+  {
+    "french": "semaine",
+    "english": "week"
+  },
+  {
+    "french": "heure",
+    "english": "hour / time"
+  },
+  {
+    "french": "problème",
+    "english": "problem"
+  },
+  {
+    "french": "histoire",
+    "english": "story / history"
+  },
+  {
+    "french": "amour",
+    "english": "love"
+  },
+  {
+    "french": "raison",
+    "english": "reason"
+  },
+  {
+    "french": "fille",
+    "english": "girl / daughter"
+  },
+  {
+    "french": "garçon",
+    "english": "boy"
+  },
+  {
+    "french": "chambre",
+    "english": "bedroom"
+  },
+  {
+    "french": "lit",
+    "english": "bed"
+  },
+  {
+    "french": "porte",
+    "english": "door"
+  },
+  {
+    "french": "mot",
+    "english": "word"
+  },
+  {
+    "french": "place",
+    "english": "place / seat"
+  },
+  {
+    "french": "idée",
+    "english": "idea"
+  },
+  {
+    "french": "question",
+    "english": "question"
+  },
+  {
+    "french": "chemin",
+    "english": "path / way"
+  },
+  {
+    "french": "père",
+    "english": "father"
+  },
+  {
+    "french": "mère",
+    "english": "mother"
+  },
+  {
+    "french": "frère",
+    "english": "brother"
+  },
+  {
+    "french": "sœur",
+    "english": "sister"
+  },
+  {
+    "french": "bureau",
+    "english": "office / desk"
+  },
+  {
+    "french": "vrai",
+    "english": "true"
+  },
+  {
+    "french": "faux",
+    "english": "false / wrong"
+  },
+  {
+    "french": "seul",
+    "english": "alone / only"
+  },
+  {
+    "french": "autre",
+    "english": "other"
+  },
+  {
+    "french": "même",
+    "english": "same"
+  },
+  {
+    "french": "premier",
+    "english": "first"
+  },
+  {
+    "french": "dernier",
+    "english": "last"
+  },
+  {
+    "french": "fort",
+    "english": "strong"
+  },
+  {
+    "french": "facile",
+    "english": "easy"
+  },
+  {
+    "french": "difficile",
+    "english": "difficult"
+  },
+  {
+    "french": "heureux",
+    "english": "happy"
+  },
+  {
+    "french": "triste",
+    "english": "sad"
+  },
+  {
+    "french": "important",
+    "english": "important"
+  },
+  {
+    "french": "blanc",
+    "english": "white"
+  },
+  {
+    "french": "noir",
+    "english": "black"
+  },
+  {
+    "french": "rouge",
+    "english": "red"
+  },
+  {
+    "french": "cher",
+    "english": "expensive / dear"
+  },
+  {
+    "french": "possible",
+    "english": "possible"
+  },
+  {
+    "french": "impossible",
+    "english": "impossible"
+  },
+  {
+    "french": "prêt",
+    "english": "ready"
+  },
+  {
+    "french": "toujours",
+    "english": "always"
+  },
+  {
+    "french": "jamais",
+    "english": "never"
+  },
+  {
+    "french": "souvent",
+    "english": "often"
+  },
+  {
+    "french": "parfois",
+    "english": "sometimes"
+  },
+  {
+    "french": "ici",
+    "english": "here"
+  },
+  {
+    "french": "là",
+    "english": "there"
+  },
+  {
+    "french": "bien",
+    "english": "well"
+  },
+  {
+    "french": "mal",
+    "english": "badly"
+  },
+  {
+    "french": "peu",
+    "english": "a little"
+  },
+  {
+    "french": "assez",
+    "english": "enough"
+  },
+  {
+    "french": "moins",
+    "english": "less"
+  },
+  {
+    "french": "plus",
+    "english": "more"
+  },
+  {
+    "french": "déjà",
+    "english": "already"
+  },
+  {
+    "french": "encore",
+    "english": "again / still"
+  },
+  {
+    "french": "enfin",
+    "english": "finally / at last"
+  },
+  {
+    "french": "tôt",
+    "english": "early"
+  },
+  {
+    "french": "tard",
+    "english": "late"
+  },
+  {
+    "french": "vite",
+    "english": "fast / quickly"
+  },
+  {
+    "french": "ensemble",
+    "english": "together"
+  },
+  {
+    "french": "pourquoi",
+    "english": "why"
+  },
+  {
+    "french": "comment",
+    "english": "how"
+  },
+  {
+    "french": "combien",
+    "english": "how much / many"
+  },
+  {
+    "french": "qui",
+    "english": "who"
+  },
+  {
+    "french": "quoi",
+    "english": "what"
+  },
+  {
+    "french": "donc",
+    "english": "so / therefore"
+  },
+  {
+    "french": "jouer",
+    "english": "to play"
+  },
+  {
+    "french": "lire",
+    "english": "to read"
+  },
+  {
+    "french": "acheter",
+    "english": "to buy"
+  },
+  {
+    "french": "vendre",
+    "english": "to sell"
+  },
+  {
+    "french": "payer",
+    "english": "to pay"
+  },
+  {
+    "french": "ouvrir",
+    "english": "to open"
+  },
+  {
+    "french": "fermer",
+    "english": "to close"
+  },
+  {
+    "french": "aider",
+    "english": "to help"
+  },
+  {
+    "french": "envoyer",
+    "english": "to send"
+  },
+  {
+    "french": "recevoir",
+    "english": "to receive"
+  },
+  {
+    "french": "oublier",
+    "english": "to forget"
+  },
+  {
+    "french": "expliquer",
+    "english": "to explain"
+  },
+  {
+    "french": "apprendre",
+    "english": "to learn"
+  },
+  {
+    "french": "choisir",
+    "english": "to choose"
+  },
+  {
+    "french": "décider",
+    "english": "to decide"
+  },
+  {
+    "french": "essayer",
+    "english": "to try"
+  },
+  {
+    "french": "réussir",
+    "english": "to succeed"
+  },
+  {
+    "french": "finir",
+    "english": "to finish"
+  },
+  {
+    "french": "continuer",
+    "english": "to continue"
+  },
+  {
+    "french": "écouter",
+    "english": "to listen"
+  },
+  {
+    "french": "chanter",
+    "english": "to sing"
+  },
+  {
+    "french": "danser",
+    "english": "to dance"
+  },
+  {
+    "french": "rire",
+    "english": "to laugh"
+  },
+  {
+    "french": "pleurer",
+    "english": "to cry"
+  },
+  {
+    "french": "sourire",
+    "english": "to smile"
+  },
+  {
+    "french": "marcher",
+    "english": "to walk"
+  },
+  {
+    "french": "courir",
+    "english": "to run"
+  },
+  {
+    "french": "sauter",
+    "english": "to jump"
+  },
+  {
+    "french": "monter",
+    "english": "to go up"
+  },
+  {
+    "french": "descendre",
+    "english": "to go down"
+  },
+  {
+    "french": "partir",
+    "english": "to leave"
+  },
+  {
+    "french": "retourner",
+    "english": "to return"
+  },
+  {
+    "french": "voyager",
+    "english": "to travel"
+  },
+  {
+    "french": "conduire",
+    "english": "to drive"
+  },
+  {
+    "french": "voler",
+    "english": "to fly / to steal"
+  },
+  {
+    "french": "nager",
+    "english": "to swim"
+  },
+  {
+    "french": "se lever",
+    "english": "to get up"
+  },
+  {
+    "french": "se laver",
+    "english": "to wash oneself"
+  },
+  {
+    "french": "s'habiller",
+    "english": "to get dressed"
+  },
+  {
+    "french": "se coucher",
+    "english": "to go to bed"
+  },
+  {
+    "french": "préparer",
+    "english": "to prepare"
+  },
+  {
+    "french": "cuisiner",
+    "english": "to cook"
+  },
+  {
+    "french": "nettoyer",
+    "english": "to clean"
+  },
+  {
+    "french": "réparer",
+    "english": "to repair"
+  },
+  {
+    "french": "casser",
+    "english": "to break"
+  },
+  {
+    "french": "couper",
+    "english": "to cut"
+  },
+  {
+    "french": "dessiner",
+    "english": "to draw"
+  },
+  {
+    "french": "construire",
+    "english": "to build"
+  },
+  {
+    "french": "détruire",
+    "english": "to destroy"
+  },
+  {
+    "french": "tuer",
+    "english": "to kill"
+  },
+  {
+    "french": "sauver",
+    "english": "to save"
+  },
+  {
+    "french": "protéger",
+    "english": "to protect"
+  },
+  {
+    "french": "attaquer",
+    "english": "to attack"
+  },
+  {
+    "french": "se cacher",
+    "english": "to hide"
+  },
+  {
+    "french": "prêter",
+    "english": "to lend"
+  },
+  {
+    "french": "emprunter",
+    "english": "to borrow"
+  },
+  {
+    "french": "partager",
+    "english": "to share"
+  },
+  {
+    "french": "garder",
+    "english": "to keep"
+  },
+  {
+    "french": "jeter",
+    "english": "to throw"
+  },
+  {
+    "french": "attraper",
+    "english": "to catch"
+  },
+  {
+    "french": "tenir",
+    "english": "to hold"
+  },
+  {
+    "french": "pousser",
+    "english": "to push"
+  },
+  {
+    "french": "tirer",
+    "english": "to pull"
+  },
+  {
+    "french": "apporter",
+    "english": "to bring"
+  },
+  {
+    "french": "gagner",
+    "english": "to win"
+  },
+  {
+    "french": "perdre",
+    "english": "to lose"
+  },
+  {
+    "french": "espérer",
+    "english": "to hope"
+  },
+  {
+    "french": "créer",
+    "english": "to create"
+  },
+  {
+    "french": "ajouter",
+    "english": "to add"
+  },
+  {
+    "french": "accepter",
+    "english": "to accept"
+  },
+  {
+    "french": "mourir",
+    "english": "to die"
+  },
+  {
+    "french": "boire",
+    "english": "to drink"
+  },
+  {
+    "french": "oser",
+    "english": "to dare"
+  },
+  {
+    "french": "crier",
+    "english": "to yell"
+  },
+  {
+    "french": "bouger",
+    "english": "to move"
+  },
+  {
+    "french": "rappeler",
+    "english": "to recall"
+  },
+  {
+    "french": "frapper",
+    "english": "to hit"
+  },
+  {
+    "french": "tourner",
+    "english": "to turn"
+  },
+  {
+    "french": "pleuvoir",
+    "english": "to rain"
+  },
+  {
+    "french": "souffrir",
+    "english": "to suffer"
+  },
+  {
+    "french": "inviter",
+    "english": "to invite"
+  },
+  {
+    "french": "briser",
+    "english": "to break"
+  },
+  {
+    "french": "compter",
+    "english": "to count"
+  },
+  {
+    "french": "plaire",
+    "english": "to please"
+  },
+  {
+    "french": "ignorer",
+    "english": "to ignore"
+  },
+  {
+    "french": "imaginer",
+    "english": "to imagine"
+  },
+  {
+    "french": "vérifier",
+    "english": "to check"
+  },
+  {
+    "french": "remercier",
+    "english": "to thank"
+  },
+  {
+    "french": "toucher",
+    "english": "to touch"
+  },
+  {
+    "french": "sembler",
+    "english": "to seem"
+  },
+  {
+    "french": "asseoir",
+    "english": "to sit"
+  },
+  {
+    "french": "quitter",
+    "english": "to leave"
+  },
+  {
+    "french": "changer",
+    "english": "to change"
+  },
+  {
+    "french": "utiliser",
+    "english": "to use"
+  },
+  {
+    "french": "exister",
+    "english": "to exist"
+  },
+  {
+    "french": "ami",
+    "english": "friend"
+  },
+  {
+    "french": "voisin",
+    "english": "neighbor"
+  },
+  {
+    "french": "collègue",
+    "english": "colleague"
+  },
+  {
+    "french": "patron",
+    "english": "boss"
+  },
+  {
+    "french": "client",
+    "english": "customer"
+  },
+  {
+    "french": "bébé",
+    "english": "baby"
+  },
+  {
+    "french": "mari",
+    "english": "husband"
+  },
+  {
+    "french": "femme",
+    "english": "wife/woman"
+  },
+  {
+    "french": "fils",
+    "english": "son"
+  },
+  {
+    "french": "grand-père",
+    "english": "grandfather"
+  },
+  {
+    "french": "grand-mère",
+    "english": "grandmother"
+  },
+  {
+    "french": "oncle",
+    "english": "uncle"
+  },
+  {
+    "french": "tante",
+    "english": "aunt"
+  },
+  {
+    "french": "cousin",
+    "english": "cousin"
+  },
+  {
+    "french": "mariage",
+    "english": "marriage"
+  },
+  {
+    "french": "mort",
+    "english": "death"
+  },
+  {
+    "french": "corps",
+    "english": "body"
+  },
+  {
+    "french": "tête",
+    "english": "head"
+  },
+  {
+    "french": "cheveux",
+    "english": "hair"
+  },
+  {
+    "french": "visage",
+    "english": "face"
+  },
+  {
+    "french": "œil (yeux)",
+    "english": "eye(s)"
+  },
+  {
+    "french": "nez",
+    "english": "nose"
+  },
+  {
+    "french": "bouche",
+    "english": "mouth"
+  },
+  {
+    "french": "dent",
+    "english": "tooth"
+  },
+  {
+    "french": "oreille",
+    "english": "ear"
+  },
+  {
+    "french": "cou",
+    "english": "neck"
+  },
+  {
+    "french": "bras",
+    "english": "arm"
+  },
+  {
+    "french": "doigt",
+    "english": "finger"
+  },
+  {
+    "french": "ventre",
+    "english": "stomach"
+  },
+  {
+    "french": "dos",
+    "english": "back"
+  },
+  {
+    "french": "jambe",
+    "english": "leg"
+  },
+  {
+    "french": "pied",
+    "english": "foot"
+  },
+  {
+    "french": "cœur",
+    "english": "heart"
+  },
+  {
+    "french": "sang",
+    "english": "blood"
+  },
+  {
+    "french": "maladie",
+    "english": "disease"
+  },
+  {
+    "french": "médecin",
+    "english": "doctor"
+  },
+  {
+    "french": "hôpital",
+    "english": "hospital"
+  },
+  {
+    "french": "médicament",
+    "english": "medicine"
+  },
+  {
+    "french": "douleur",
+    "english": "pain"
+  },
+  {
+    "french": "santé",
+    "english": "health"
+  },
+  {
+    "french": "vie",
+    "english": "life"
+  },
+  {
+    "french": "esprit",
+    "english": "mind/spirit"
+  },
+  {
+    "french": "voix",
+    "english": "voice"
+  },
+  {
+    "french": "force",
+    "english": "strength"
+  },
+  {
+    "french": "peur",
+    "english": "fear"
+  },
+  {
+    "french": "courage",
+    "english": "courage"
+  },
+  {
+    "french": "haine",
+    "english": "hate"
+  },
+  {
+    "french": "joie",
+    "english": "joy"
+  },
+  {
+    "french": "tristesse",
+    "english": "sadness"
+  },
+  {
+    "french": "colère",
+    "english": "anger"
+  },
+  {
+    "french": "surprise",
+    "english": "surprise"
+  },
+  {
+    "french": "rêve",
+    "english": "dream"
+  },
+  {
+    "french": "pensée",
+    "english": "thought"
+  },
+  {
+    "french": "secret",
+    "english": "secret"
+  },
+  {
+    "french": "vérité",
+    "english": "truth"
+  },
+  {
+    "french": "mensonge",
+    "english": "lie"
+  },
+  {
+    "french": "erreur",
+    "english": "mistake"
+  },
+  {
+    "french": "solution",
+    "english": "solution"
+  },
+  {
+    "french": "choix",
+    "english": "choice"
+  },
+  {
+    "french": "décision",
+    "english": "decision"
+  },
+  {
+    "french": "tort",
+    "english": "wrong"
+  },
+  {
+    "french": "habitude",
+    "english": "habit"
+  },
+  {
+    "french": "loi",
+    "english": "law"
+  },
+  {
+    "french": "droit",
+    "english": "right"
+  },
+  {
+    "french": "police",
+    "english": "police"
+  },
+  {
+    "french": "prison",
+    "english": "prison"
+  },
+  {
+    "french": "guerre",
+    "english": "war"
+  },
+  {
+    "french": "paix",
+    "english": "peace"
+  },
+  {
+    "french": "danger",
+    "english": "danger"
+  },
+  {
+    "french": "sécurité",
+    "english": "safety"
+  },
+  {
+    "french": "attention",
+    "english": "attention"
+  },
+  {
+    "french": "secours",
+    "english": "help"
+  },
+  {
+    "french": "animal",
+    "english": "animal"
+  },
+  {
+    "french": "chien",
+    "english": "dog"
+  },
+  {
+    "french": "chat",
+    "english": "cat"
+  },
+  {
+    "french": "oiseau",
+    "english": "bird"
+  },
+  {
+    "french": "cheval",
+    "english": "horse"
+  },
+  {
+    "french": "poisson",
+    "english": "fish"
+  },
+  {
+    "french": "feu",
+    "english": "fire"
+  },
+  {
+    "french": "vent",
+    "english": "wind"
+  },
+  {
+    "french": "neige",
+    "english": "snow"
+  },
+  {
+    "french": "pluie",
+    "english": "rain"
+  },
+  {
+    "french": "nuage",
+    "english": "cloud"
+  },
+  {
+    "french": "ciel",
+    "english": "sky"
+  },
+  {
+    "french": "soleil",
+    "english": "sun"
+  },
+  {
+    "french": "lune",
+    "english": "moon"
+  },
+  {
+    "french": "étoile",
+    "english": "star"
+  },
+  {
+    "french": "terre",
+    "english": "earth/ground"
+  },
+  {
+    "french": "arbre",
+    "english": "tree"
+  },
+  {
+    "french": "fleur",
+    "english": "flower"
+  },
+  {
+    "french": "herbe",
+    "english": "grass"
+  },
+  {
+    "french": "forêt",
+    "english": "forest"
+  },
+  {
+    "french": "montagne",
+    "english": "mountain"
+  },
+  {
+    "french": "rivière",
+    "english": "river"
+  },
+  {
+    "french": "mer",
+    "english": "sea"
+  },
+  {
+    "french": "plage",
+    "english": "beach"
+  },
+  {
+    "french": "voyage",
+    "english": "trip"
+  },
+  {
+    "french": "vacances",
+    "english": "vacation"
+  },
+  {
+    "french": "but",
+    "english": "goal"
+  },
+  {
+    "french": "groupe",
+    "english": "group"
+  },
+  {
+    "french": "appartement",
+    "english": "apartment"
+  },
+  {
+    "french": "salon",
+    "english": "living room"
+  },
+  {
+    "french": "cuisine",
+    "english": "kitchen"
+  },
+  {
+    "french": "salle de bain",
+    "english": "bathroom"
+  },
+  {
+    "french": "toilette",
+    "english": "toilet"
+  },
+  {
+    "french": "mur",
+    "english": "wall"
+  },
+  {
+    "french": "toit",
+    "english": "roof"
+  },
+  {
+    "french": "fenêtre",
+    "english": "window"
+  },
+  {
+    "french": "clé",
+    "english": "key"
+  },
+  {
+    "french": "table",
+    "english": "table"
+  },
+  {
+    "french": "chaise",
+    "english": "chair"
+  },
+  {
+    "french": "canapé",
+    "english": "sofa"
+  },
+  {
+    "french": "meuble",
+    "english": "furniture"
+  },
+  {
+    "french": "télévision",
+    "english": "television"
+  },
+  {
+    "french": "ordinateur",
+    "english": "computer"
+  },
+  {
+    "french": "téléphone",
+    "english": "phone"
+  },
+  {
+    "french": "cahier",
+    "english": "notebook"
+  },
+  {
+    "french": "stylo",
+    "english": "pen"
+  },
+  {
+    "french": "papier",
+    "english": "paper"
+  },
+  {
+    "french": "lettre",
+    "english": "letter"
+  },
+  {
+    "french": "image",
+    "english": "picture"
+  },
+  {
+    "french": "photo",
+    "english": "photo"
+  },
+  {
+    "french": "musique",
+    "english": "music"
+  },
+  {
+    "french": "chanson",
+    "english": "song"
+  },
+  {
+    "french": "film",
+    "english": "movie"
+  },
+  {
+    "french": "jeu",
+    "english": "game"
+  },
+  {
+    "french": "sport",
+    "english": "sport"
+  },
+  {
+    "french": "équipe",
+    "english": "team"
+  },
+  {
+    "french": "ballon",
+    "english": "ball"
+  },
+  {
+    "french": "prix",
+    "english": "price"
+  },
+  {
+    "french": "banque",
+    "english": "bank"
+  },
+  {
+    "french": "carte",
+    "english": "card/map"
+  },
+  {
+    "french": "billet",
+    "english": "ticket/bill"
+  },
+  {
+    "french": "monnaie",
+    "english": "change/coins"
+  },
+  {
+    "french": "magasin",
+    "english": "store"
+  },
+  {
+    "french": "marché",
+    "english": "market"
+  },
+  {
+    "french": "vêtement",
+    "english": "clothing"
+  },
+  {
+    "french": "pantalon",
+    "english": "pants"
+  },
+  {
+    "french": "chemise",
+    "english": "shirt"
+  },
+  {
+    "french": "robe",
+    "english": "dress"
+  },
+  {
+    "french": "chaussure",
+    "english": "shoe"
+  },
+  {
+    "french": "manteau",
+    "english": "coat"
+  },
+  {
+    "french": "chapeau",
+    "english": "hat"
+  },
+  {
+    "french": "sac",
+    "english": "bag"
+  },
+  {
+    "french": "montre",
+    "english": "watch"
+  },
+  {
+    "french": "lunettes",
+    "english": "glasses"
+  },
+  {
+    "french": "repas",
+    "english": "meal"
+  },
+  {
+    "french": "petit-déjeuner",
+    "english": "breakfast"
+  },
+  {
+    "french": "déjeuner",
+    "english": "lunch"
+  },
+  {
+    "french": "dîner",
+    "english": "dinner"
+  },
+  {
+    "french": "pain",
+    "english": "bread"
+  },
+  {
+    "french": "viande",
+    "english": "meat"
+  },
+  {
+    "french": "poulet",
+    "english": "chicken"
+  },
+  {
+    "french": "œuf",
+    "english": "egg"
+  },
+  {
+    "french": "fruit",
+    "english": "fruit"
+  },
+  {
+    "french": "légume",
+    "english": "vegetable"
+  },
+  {
+    "french": "pomme",
+    "english": "apple"
+  },
+  {
+    "french": "banane",
+    "english": "banana"
+  },
+  {
+    "french": "lait",
+    "english": "milk"
+  },
+  {
+    "french": "café",
+    "english": "coffee"
+  },
+  {
+    "french": "thé",
+    "english": "tea"
+  },
+  {
+    "french": "vin",
+    "english": "wine"
+  },
+  {
+    "french": "bière",
+    "english": "beer"
+  },
+  {
+    "french": "verre",
+    "english": "glass"
+  },
+  {
+    "french": "tasse",
+    "english": "cup"
+  },
+  {
+    "french": "assiette",
+    "english": "plate"
+  },
+  {
+    "french": "couteau",
+    "english": "knife"
+  },
+  {
+    "french": "fourchette",
+    "english": "fork"
+  },
+  {
+    "french": "cuillère",
+    "english": "spoon"
+  },
+  {
+    "french": "route",
+    "english": "road"
+  },
+  {
+    "french": "pont",
+    "english": "bridge"
+  },
+  {
+    "french": "bus",
+    "english": "bus"
+  },
+  {
+    "french": "train",
+    "english": "train"
+  },
+  {
+    "french": "avion",
+    "english": "airplane"
+  },
+  {
+    "french": "vélo",
+    "english": "bicycle"
+  },
+  {
+    "french": "moto",
+    "english": "motorcycle"
+  },
+  {
+    "french": "gare",
+    "english": "train station"
+  },
+  {
+    "french": "aéroport",
+    "english": "airport"
+  },
+  {
+    "french": "station",
+    "english": "station"
+  },
+  {
+    "french": "arrêt",
+    "english": "stop"
+  },
+  {
+    "french": "village",
+    "english": "village"
+  },
+  {
+    "french": "bâtiment",
+    "english": "building"
+  },
+  {
+    "french": "église",
+    "english": "church"
+  },
+  {
+    "french": "centre",
+    "english": "center"
+  },
+  {
+    "french": "jardin",
+    "english": "garden"
+  },
+  {
+    "french": "parc",
+    "english": "park"
+  },
+  {
+    "french": "université",
+    "english": "university"
+  },
+  {
+    "french": "classe",
+    "english": "class"
+  },
+  {
+    "french": "professeur",
+    "english": "teacher"
+  },
+  {
+    "french": "élève",
+    "english": "student (K-12)"
+  },
+  {
+    "french": "étudiant",
+    "english": "student (college)"
+  },
+  {
+    "french": "livre",
+    "english": "book"
+  },
+  {
+    "french": "page",
+    "english": "page"
+  },
+  {
+    "french": "phrase",
+    "english": "sentence"
+  },
+  {
+    "french": "langue",
+    "english": "language/tongue"
+  },
+  {
+    "french": "nombre",
+    "english": "number"
+  },
+  {
+    "french": "heure",
+    "english": "hour"
+  },
+  {
+    "french": "minute",
+    "english": "minute"
+  },
+  {
+    "french": "rapide",
+    "english": "fast"
+  },
+  {
+    "french": "lent",
+    "english": "slow"
+  },
+  {
+    "french": "faible",
+    "english": "weak"
+  },
+  {
+    "french": "lourd",
+    "english": "heavy"
+  },
+  {
+    "french": "léger",
+    "english": "light (weight)"
+  },
+  {
+    "french": "dur",
+    "english": "hard"
+  },
+  {
+    "french": "mou",
+    "english": "soft"
+  },
+  {
+    "french": "riche",
+    "english": "rich"
+  },
+  {
+    "french": "pauvre",
+    "english": "poor"
+  },
+  {
+    "french": "plein",
+    "english": "full"
+  },
+  {
+    "french": "vide",
+    "english": "empty"
+  },
+  {
+    "french": "ouvert",
+    "english": "open"
+  },
+  {
+    "french": "fermé",
+    "english": "closed"
+  },
+  {
+    "french": "propre",
+    "english": "clean"
+  },
+  {
+    "french": "sale",
+    "english": "dirty"
+  },
+  {
+    "french": "clair",
+    "english": "clear/light"
+  },
+  {
+    "french": "sombre",
+    "english": "dark"
+  },
+  {
+    "french": "sec",
+    "english": "dry"
+  },
+  {
+    "french": "mouillé",
+    "english": "wet"
+  },
+  {
+    "french": "ancien",
+    "english": "old/former"
+  },
+  {
+    "french": "laid",
+    "english": "ugly"
+  },
+  {
+    "french": "long",
+    "english": "long"
+  },
+  {
+    "french": "court",
+    "english": "short"
+  },
+  {
+    "french": "haut",
+    "english": "high"
+  },
+  {
+    "french": "bas",
+    "english": "low"
+  },
+  {
+    "french": "large",
+    "english": "wide"
+  },
+  {
+    "french": "étroit",
+    "english": "narrow"
+  },
+  {
+    "french": "gros",
+    "english": "big/fat"
+  },
+  {
+    "french": "mince",
+    "english": "thin"
+  },
+  {
+    "french": "fâché",
+    "english": "angry"
+  },
+  {
+    "french": "fatigué",
+    "english": "tired"
+  },
+  {
+    "french": "malade",
+    "english": "sick"
+  },
+  {
+    "french": "sain",
+    "english": "healthy"
+  },
+  {
+    "french": "vivant",
+    "english": "alive"
+  },
+  {
+    "french": "meilleur",
+    "english": "better/best"
+  },
+  {
+    "french": "pire",
+    "english": "worse/worst"
+  },
+  {
+    "french": "prochain",
+    "english": "next"
+  },
+  {
+    "french": "passé",
+    "english": "past"
+  },
+  {
+    "french": "tout",
+    "english": "all"
+  },
+  {
+    "french": "rien",
+    "english": "nothing"
+  },
+  {
+    "french": "chaque",
+    "english": "each/every"
+  },
+  {
+    "french": "plusieurs",
+    "english": "several"
+  },
+  {
+    "french": "trop",
+    "english": "too much/too"
+  },
+  {
+    "french": "partout",
+    "english": "everywhere"
+  },
+  {
+    "french": "nulle part",
+    "english": "nowhere"
+  },
+  {
+    "french": "bientôt",
+    "english": "soon"
+  },
+  {
+    "french": "avant",
+    "english": "before"
+  },
+  {
+    "french": "après",
+    "english": "after"
+  },
+  {
+    "french": "doucement",
+    "english": "softly/gently"
+  },
+  {
+    "french": "vraiment",
+    "english": "really"
+  },
+  {
+    "french": "exactement",
+    "english": "exactly"
+  },
+  {
+    "french": "presque",
+    "english": "almost"
+  },
+  {
+    "french": "seulement",
+    "english": "only"
+  },
+  {
+    "french": "pendant",
+    "english": "during"
+  },
+  {
+    "french": "depuis",
+    "english": "since/for"
+  },
+  {
+    "french": "car",
+    "english": "because"
+  },
+  {
+    "french": "donc",
+    "english": "so"
+  },
+  {
+    "french": "alors",
+    "english": "then/so"
+  },
+  {
+    "french": "si",
+    "english": "if"
+  },
+  {
+    "french": "jusqu'à",
+    "english": "until"
+  },
+  {
+    "french": "vers",
+    "english": "towards"
+  },
+  {
+    "french": "chez",
+    "english": "at the home of"
+  },
+  {
+    "french": "entre",
+    "english": "between"
+  },
+  {
+    "french": "contre",
+    "english": "against"
+  },
+  {
+    "french": "parmi",
+    "english": "among"
+  },
+  {
+    "french": "bleu",
+    "english": "blue"
+  },
+  {
+    "french": "vert",
+    "english": "green"
+  },
+  {
+    "french": "jaune",
+    "english": "yellow"
+  },
+  {
+    "french": "marron",
+    "english": "brown"
+  },
+  {
+    "french": "gris",
+    "english": "gray"
+  },
+  {
+    "french": "rose",
+    "english": "pink"
+  },
+  {
+    "french": "joyeux",
+    "english": "joyful"
+  },
+  {
+    "french": "sérieux",
+    "english": "serious"
+  },
+  {
+    "french": "drôle",
+    "english": "funny"
+  },
+  {
+    "french": "étrange",
+    "english": "strange"
+  },
+  {
+    "french": "parfait",
+    "english": "perfect"
+  },
+  {
+    "french": "génial",
+    "english": "awesome"
+  },
+  {
+    "french": "terrible",
+    "english": "terrible"
+  },
+  {
+    "french": "silencieux",
+    "english": "silent"
+  },
+  {
+    "french": "bruyant",
+    "english": "noisy"
+  },
+  {
+    "french": "fou",
+    "english": "crazy"
+  },
+  {
+    "french": "intelligent",
+    "english": "smart"
+  },
+  {
+    "french": "stupide",
+    "english": "stupid"
+  },
+  {
+    "french": "intéressant",
+    "english": "interesting"
+  },
+  {
+    "french": "ennuyeux",
+    "english": "boring"
+  },
+  {
+    "french": "sûr",
+    "english": "sure/safe"
+  },
+  {
+    "french": "dangereux",
+    "english": "dangerous"
+  },
+  {
+    "french": "libre",
+    "english": "free"
+  },
+  {
+    "french": "occupé",
+    "english": "busy"
+  },
+  {
+    "french": "célèbre",
+    "english": "famous"
+  },
+  {
+    "french": "inconnu",
+    "english": "unknown"
+  },
+  {
+    "french": "normal",
+    "english": "normal"
+  },
+  {
+    "french": "bizarre",
+    "english": "weird"
+  },
+  {
+    "french": "certain",
+    "english": "certain"
+  },
+  {
+    "french": "doux",
+    "english": "sweet/soft"
+  },
+  {
+    "french": "ce",
+    "english": "this / that (masc.)"
+  },
+  {
+    "french": "cette",
+    "english": "this / that (fem.)"
+  },
+  {
+    "french": "ces",
+    "english": "these / those (plural)"
+  },
+  {
+    "french": "du",
+    "english": "of the / some (masc.)"
+  },
+  {
+    "french": "des",
+    "english": "some (plural indefinite)"
+  },
+  {
+    "french": "au",
+    "english": "to the / at the (masc.)"
+  },
+  {
+    "french": "aux",
+    "english": "to the / at the (plural)"
+  },
+  {
+    "french": "en",
+    "english": "of it / some / in"
+  },
+  {
+    "french": "y",
+    "english": "there / to it"
+  },
+  {
+    "french": "que",
+    "english": "that / which / whom"
+  },
+  {
+    "french": "qui",
+    "english": "who / which (subject)"
+  },
+  {
+    "french": "dont",
+    "english": "whose / of which"
+  },
+  {
+    "french": "leur",
+    "english": "their / to them"
+  },
+  {
+    "french": "lui",
+    "english": "him / her (indirect)"
+  },
+  {
+    "french": "ça",
+    "english": "that / this (informal)"
+  },
+  {
+    "french": "tout",
+    "english": "all / everything"
+  },
+  {
+    "french": "tous",
+    "english": "all (masc. plural)"
+  },
+  {
+    "french": "encore",
+    "english": "still / again"
+  },
+  {
+    "french": "devoir",
+    "english": "must / have to"
+  },
+  {
+    "french": "pouvoir",
+    "english": "can / to be able to"
+  },
+  {
+    "french": "cet",
+    "english": "this / that (before vowel)"
+  },
+  {
+    "french": "celui",
+    "english": "the one (masc. singular)"
+  },
+  {
+    "french": "celle",
+    "english": "the one (fem. singular)"
+  },
+  {
+    "french": "ceux",
+    "english": "those (masc. plural)"
+  },
+  {
+    "french": "celles",
+    "english": "those (fem. plural)"
+  },
+  {
+    "french": "leurs",
+    "english": "their (plural object)"
+  },
+  {
+    "french": "eux",
+    "english": "them (masc./mixed plural)"
+  },
+  {
+    "french": "soi",
+    "english": "oneself / yourself"
+  },
+  {
+    "french": "quelqu'un",
+    "english": "someone"
+  },
+  {
+    "french": "personne",
+    "english": "nobody / anyone"
+  },
+  {
+    "french": "chacun",
+    "english": "each one / everyone"
+  },
+  {
+    "french": "lorsque",
+    "english": "when (formal)"
+  },
+  {
+    "french": "puisque",
+    "english": "since / seeing that"
+  },
+  {
+    "french": "tandis que",
+    "english": "while / whereas"
+  },
+  {
+    "french": "si",
+    "english": "if / so"
+  },
+  {
+    "french": "donc",
+    "english": "therefore / so"
+  },
+  {
+    "french": "puis",
+    "english": "then / next"
+  },
+  {
+    "french": "toutes",
+    "english": "all (fem. plural)"
+  },
+  {
+    "french": "toute",
+    "english": "entire / whole (fem.)"
+  },
+  {
+    "french": "certains",
+    "english": "certain / some"
+  },
+  {
+    "french": "beaucoup de",
+    "english": "a lot of"
+  },
+  {
+    "french": "peu de",
+    "english": "little / few"
+  },
+  {
+    "french": "assez de",
+    "english": "enough"
+  },
+  {
+    "french": "trop de",
+    "english": "too much / too many"
+  },
+  {
+    "french": "cela",
+    "english": "that (formal version of ça)"
+  },
+  {
+    "french": "voici",
+    "english": "here is / here are"
+  },
+  {
+    "french": "voilà",
+    "english": "there is / that's it"
+  },
+  {
+    "french": "d'accord",
+    "english": "okay / agreed"
+  },
+  {
+    "french": "bien sûr",
+    "english": "of course"
+  },
+  {
+    "french": "certainement",
+    "english": "certainly"
+  },
+  {
+    "french": "absolument",
+    "english": "absolutely"
+  }
 ]

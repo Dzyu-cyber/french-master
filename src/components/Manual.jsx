@@ -402,7 +402,7 @@ export default function Manual({ onBack }) {
               <tr><td>semaine</td><td>week</td><td>La semaine dernière. (Last week.)</td></tr>
               <tr><td>heure</td><td>hour / time</td><td>Quelle heure est-il ? (What time is it?)</td></tr>
               <tr><td>problème</td><td>problem</td><td>Pas de problème. (No problem.)</td></tr>
-              <tr><td>history</td><td>story / history</td><td>C'est une longue histoire. (It's a long story.)</td></tr>
+              <tr><td>histoire</td><td>story / history</td><td>C'est une longue histoire. (It's a long story.)</td></tr>
               <tr><td>amour</td><td>love</td><td>L'amour est aveugle. (Love is blind.)</td></tr>
               <tr><td>raison</td><td>reason</td><td>Tu as raison. (You're right.)</td></tr>
               <tr><td>fille</td><td>girl / daughter</td><td>C'est ma fille. (That's my daughter.)</td></tr>

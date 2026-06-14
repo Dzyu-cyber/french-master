@@ -21,13 +21,13 @@ export default function Home({ totalVocab, lastSession, onStartQuiz, onViewManua
   const [errorMsg, setErrorMsg] = useState('');
   const [wordCount, setWordCount] = useState(0);
 
-  // Generate 40-word presets up to 600 words
+  // Generate 40-word presets up to 600 words, and extra ranges dynamically
   const getPresets = () => {
     const presets = [];
     const chunkSize = 40;
-    const maxWords = 600;
+    const coreWords = 600;
     
-    for (let i = 1; i <= maxWords; i += chunkSize) {
+    for (let i = 1; i <= coreWords; i += chunkSize) {
       const start = i;
       const end = i + chunkSize - 1;
       presets.push({
@@ -37,11 +37,20 @@ export default function Home({ totalVocab, lastSession, onStartQuiz, onViewManua
       });
     }
     
-    // All preset shows 1-600
+    // Add extra words range if totalVocab exceeds core 600 words
+    if (totalVocab > coreWords) {
+      presets.push({
+        label: `${coreWords + 1} - ${totalVocab} (Extra)`,
+        start: coreWords + 1,
+        end: totalVocab
+      });
+    }
+    
+    // All preset shows 1 - totalVocab
     presets.push({
-      label: `All / Tout (1 - 600)`,
+      label: `All / Tout (1 - ${totalVocab})`,
       start: 1,
-      end: 600
+      end: totalVocab
     });
     
     return presets;
