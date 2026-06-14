@@ -26,6 +26,18 @@ function getTodayDateString() {
   return new Date().toISOString().split('T')[0];
 }
 
+/**
+ * Fisher-Yates array shuffling utility.
+ */
+function shuffleArray(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 export default function App() {
   // --- Persistent State (LocalStorage) ---
   const [lastSessionConfig, setLastSessionConfig] = useLocalStorage('french-master-last-session', {
@@ -47,8 +59,16 @@ export default function App() {
 
   // --- Scroll to Top on Load/Refresh ---
   useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
     window.scrollTo(0, 0);
   }, []);
+
+  // --- Scroll to Top on View Change ---
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [view]);
 
   // --- Streak Verification Effect (on startup) ---
   useEffect(() => {
@@ -80,7 +100,7 @@ export default function App() {
       words = vocabularyData.slice(0, 40);
     }
 
-    setSessionWords(words);
+    setSessionWords(shuffleArray(words));
     setCurrentWordIndex(0);
     setSessionScore(0);
     setIncorrectWords([]);
@@ -94,7 +114,7 @@ export default function App() {
     setIsMistakesReviewMode(true);
     const words = [...incorrectWords];
 
-    setSessionWords(words);
+    setSessionWords(shuffleArray(words));
     setCurrentWordIndex(0);
     setSessionScore(0);
     setIncorrectWords([]);
