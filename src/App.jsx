@@ -189,6 +189,7 @@ export default function App() {
         if (sessionConfig?.mode === 'typing') {
           return (
             <QuizTyping
+              key={currentWord.french}
               currentWord={currentWord}
               direction={sessionConfig.direction}
               currentIndex={currentWordIndex}
@@ -202,6 +203,7 @@ export default function App() {
         } else {
           return (
             <QuizMC
+              key={currentWord.french}
               currentWord={currentWord}
               rangeWords={rangeWords}
               allWords={vocabularyData}

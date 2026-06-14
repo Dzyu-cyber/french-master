@@ -25,13 +25,22 @@ export default function QuizMC({
   onNext,
   onExit
 }) {
-  const [choices, setChoices] = useState([]);
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
 
   const questionWord = direction === 'fr-en' ? currentWord.french : currentWord.english;
   const correctTranslation = direction === 'fr-en' ? currentWord.english : currentWord.french;
   const frenchWordToPronounce = currentWord.french;
+
+  // Helper to shuffle array (Fisher-Yates)
+  const shuffleArray = (array) => {
+    const arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  };
 
   // Speak the French word
   const speakFrench = () => {
@@ -55,43 +64,38 @@ export default function QuizMC({
     speakFrench();
   }, [currentWord]);
 
-  // Generate options when current word changes
-  useEffect(() => {
-    setSelectedChoice(null);
-    setIsAnswered(false);
-
+  // Generate options synchronously using useMemo to prevent state mismatch flickers
+  const choices = React.useMemo(() => {
     const correctText = correctTranslation;
     const uniqueOptions = new Set([correctText]);
     
-    // Attempt to pick distractors from selected range
+    // 1. Get range distractors
     const rangeDistractors = rangeWords
       .map(w => (direction === 'fr-en' ? w.english : w.french))
-      .filter(val => val !== correctText);
+      .filter(val => val && val !== correctText);
 
-    // Shuffle range distractors
-    const shuffledDistractors = [...rangeDistractors].sort(() => 0.5 - Math.random());
-    
-    for (const option of shuffledDistractors) {
+    // Shuffle using Fisher-Yates
+    const shuffledRange = shuffleArray(rangeDistractors);
+    for (const option of shuffledRange) {
       if (uniqueOptions.size >= 4) break;
       uniqueOptions.add(option);
     }
 
-    // Fallback to all words if range is too small for 3 distractors
+    // 2. Fallback to all distractors if needed
     if (uniqueOptions.size < 4) {
       const allDistractors = allWords
         .map(w => (direction === 'fr-en' ? w.english : w.french))
-        .filter(val => val !== correctText)
-        .sort(() => 0.5 - Math.random());
-
-      for (const option of allDistractors) {
+        .filter(val => val && val !== correctText);
+      
+      const shuffledAll = shuffleArray(allDistractors);
+      for (const option of shuffledAll) {
         if (uniqueOptions.size >= 4) break;
         uniqueOptions.add(option);
       }
     }
 
-    // Convert Set back to array and shuffle
-    const optionsArray = Array.from(uniqueOptions).sort(() => 0.5 - Math.random());
-    setChoices(optionsArray);
+    // 3. Final shuffle of options
+    return shuffleArray(Array.from(uniqueOptions));
   }, [currentWord, direction, rangeWords, allWords, correctTranslation]);
 
   // Handle choice selection
