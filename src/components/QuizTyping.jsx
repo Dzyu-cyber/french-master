@@ -54,10 +54,8 @@ export default function QuizTyping({
     setIsCorrect(false);
     setHasShaker(false);
     
-    // Speak French word
     speakFrench();
 
-    // Auto-focus input
     if (inputRef.current) {
       inputRef.current.focus();
     }
@@ -80,7 +78,6 @@ export default function QuizTyping({
 
     if (!isAnswerCorrect) {
       setHasShaker(true);
-      // Trigger speak on incorrect answer so they hear the word again
       speakFrench();
     } else {
       speakFrench();
@@ -92,7 +89,6 @@ export default function QuizTyping({
   // Keyboard shortcut listeners
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Enter key submits or moves next
       if (e.key === 'Enter') {
         if (!isAnswered) {
           checkAnswer();
@@ -101,7 +97,6 @@ export default function QuizTyping({
         }
       }
 
-      // Spacebar plays audio, but only if input is not focused
       if (e.key === ' ' && document.activeElement !== inputRef.current) {
         e.preventDefault();
         speakFrench();
@@ -121,8 +116,8 @@ export default function QuizTyping({
     <div className={`card ${hasShaker ? 'shake' : ''}`} style={{ animationDelay: '0.1s' }}>
       {/* Quiz Progress & Stats */}
       <div className="quiz-header">
-        <div>Question {currentIndex + 1} sur {totalQuestions}</div>
-        <div>Score: {score} | Précision: {currentAccuracy}%</div>
+        <div>Question {currentIndex + 1} of {totalQuestions} / Question {currentIndex + 1} sur {totalQuestions}</div>
+        <div>Score: {score} | Accuracy: {currentAccuracy}% / Précision: {currentAccuracy}%</div>
       </div>
 
       <div className="progress-container">
@@ -131,15 +126,17 @@ export default function QuizTyping({
 
       {/* Question Card */}
       <div className="question-panel">
-        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '1px' }}>
-          {direction === 'fr-en' ? 'Traduisez en anglais' : 'Translate into French'}
+        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '800', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '1px' }}>
+          {direction === 'fr-en' 
+            ? 'Translate into English / Traduisez en anglais' 
+            : 'Translate into French / Traduisez en français'}
         </div>
         <div className="word-to-translate">{questionWord}</div>
         
         <button 
           onClick={speakFrench} 
           className="pronounce-btn" 
-          title="Écouter la prononciation / Hear pronunciation"
+          title="Hear pronunciation / Écouter la prononciation"
           aria-label="Hear pronunciation"
         >
           🔊
@@ -152,7 +149,7 @@ export default function QuizTyping({
           ref={inputRef}
           type="text"
           className="input-field"
-          placeholder={direction === 'fr-en' ? "Saisissez la traduction anglaise..." : "Saisissez la traduction française..."}
+          placeholder={direction === 'fr-en' ? "Type the English translation... / Saisissez la traduction anglaise..." : "Type the French translation... / Saisissez la traduction française..."}
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
           disabled={isAnswered}
@@ -168,13 +165,13 @@ export default function QuizTyping({
         <div className={`feedback-box ${isCorrect ? 'correct' : 'incorrect'}`}>
           {isCorrect ? (
             <div>
-              <div className="feedback-title">✔️ Correct !</div>
-              <div className="feedback-solution">La traduction est : <strong>{correctTranslation}</strong></div>
+              <div className="feedback-title">✔️ Correct! / Correct !</div>
+              <div className="feedback-solution">The translation is: / La traduction est : <strong>{correctTranslation}</strong></div>
             </div>
           ) : (
             <div>
               <div className="feedback-title">❌ Incorrect</div>
-              <div className="feedback-solution">La réponse correcte était : <strong>{correctTranslation}</strong></div>
+              <div className="feedback-solution">The correct answer was: / La réponse correcte était : <strong>{correctTranslation}</strong></div>
             </div>
           )}
         </div>
@@ -187,17 +184,22 @@ export default function QuizTyping({
           className="btn btn-primary"
           disabled={!userInput.trim()}
         >
-          Valider / Check Answer
+          Check Answer / Valider
         </button>
       ) : (
         <button onClick={onNext} className="btn btn-primary">
-          {currentIndex + 1 === totalQuestions ? 'Terminer le Quiz 🏁' : 'Question Suivante ➔'}
+          {currentIndex + 1 === totalQuestions 
+            ? 'Finish Quiz / Terminer le Quiz 🏁' 
+            : 'Next Question / Question Suivante ➔'}
         </button>
       )}
 
       {/* Keyboard Shortcuts Hint */}
       <div className="keyboard-hint">
-        Raccourcis : Appuyez sur <span className="keyboard-key">Entrée</span> pour valider ou continuer. Appuyez sur <span className="keyboard-key">Espace</span> (quand le champ est désélectionné) pour prononcer.
+        Keyboard Shortcuts: Press <span className="keyboard-key">Enter</span> to check or continue. Press <span className="keyboard-key">Space</span> (when input is unfocused) to pronounce.
+        <div style={{ fontSize: '0.75rem', marginTop: '0.2rem', opacity: 0.8 }}>
+          Raccourcis : Appuyez sur <span className="keyboard-key">Entrée</span> pour valider ou continuer. Appuyez sur <span className="keyboard-key">Espace</span> (quand le champ est désélectionné) pour prononcer.
+        </div>
       </div>
     </div>
   );

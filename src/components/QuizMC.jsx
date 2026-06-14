@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 /**
  * Multiple Choice Quiz Component.
@@ -11,7 +11,6 @@ import React, { useState, useEffect, useRef } from 'react';
  * @param {number} score - Current correct count
  * @param {function} onAnswer - Callback when an answer is evaluated (isCorrect, answeredWord)
  * @param {function} onNext - Callback to load next question
- * @param {string} theme - 'light' | 'dark'
  */
 export default function QuizMC({
   currentWord,
@@ -22,13 +21,11 @@ export default function QuizMC({
   totalQuestions,
   score,
   onAnswer,
-  onNext,
-  theme
+  onNext
 }) {
   const [choices, setChoices] = useState([]);
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [isAnswered, setIsAnswered] = useState(false);
-  const audioPlayedRef = useRef(false);
 
   const questionWord = direction === 'fr-en' ? currentWord.french : currentWord.english;
   const correctTranslation = direction === 'fr-en' ? currentWord.english : currentWord.french;
@@ -37,12 +34,10 @@ export default function QuizMC({
   // Speak the French word
   const speakFrench = () => {
     if ('speechSynthesis' in window) {
-      // Cancel active speaking to avoid overlap
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(frenchWordToPronounce);
       utterance.lang = 'fr-FR';
       
-      // Attempt to find a French voice for higher quality pronunciation
       const voices = window.speechSynthesis.getVoices();
       const frenchVoice = voices.find(voice => voice.lang.startsWith('fr'));
       if (frenchVoice) {
@@ -56,8 +51,6 @@ export default function QuizMC({
   // Pronounce word when question loads
   useEffect(() => {
     speakFrench();
-    // Reset audio play tracker
-    audioPlayedRef.current = true;
   }, [currentWord]);
 
   // Generate options when current word changes
@@ -123,7 +116,7 @@ export default function QuizMC({
       
       // Spacebar to replay audio
       if (e.key === ' ') {
-        e.preventDefault(); // Prevent page scrolling
+        e.preventDefault();
         speakFrench();
       }
 
@@ -146,8 +139,8 @@ export default function QuizMC({
     <div className="card" style={{ animationDelay: '0.1s' }}>
       {/* Quiz Progress & Stats */}
       <div className="quiz-header">
-        <div>Question {currentIndex + 1} sur {totalQuestions}</div>
-        <div>Score: {score} | Précision: {currentAccuracy}%</div>
+        <div>Question {currentIndex + 1} of {totalQuestions} / Question {currentIndex + 1} sur {totalQuestions}</div>
+        <div>Score: {score} | Accuracy: {currentAccuracy}% / Précision: {currentAccuracy}%</div>
       </div>
 
       <div className="progress-container">
@@ -156,15 +149,17 @@ export default function QuizMC({
 
       {/* Question Card */}
       <div className="question-panel">
-        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '700', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '1px' }}>
-          {direction === 'fr-en' ? 'Traduisez en anglais' : 'Translate into French'}
+        <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', fontWeight: '800', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '1px' }}>
+          {direction === 'fr-en' 
+            ? 'Translate into English / Traduisez en anglais' 
+            : 'Translate into French / Traduisez en français'}
         </div>
         <div className="word-to-translate">{questionWord}</div>
         
         <button 
           onClick={speakFrench} 
           className="pronounce-btn" 
-          title="Écouter la prononciation / Hear pronunciation"
+          title="Hear pronunciation / Écouter la prononciation"
           aria-label="Hear pronunciation"
         >
           🔊
@@ -209,13 +204,18 @@ export default function QuizMC({
       {/* Action Buttons / Next */}
       {isAnswered && (
         <button onClick={onNext} className="btn btn-primary" style={{ animation: 'popIn 0.3s forwards' }}>
-          {currentIndex + 1 === totalQuestions ? 'Terminer le Quiz 🏁' : 'Question Suivante ➔'}
+          {currentIndex + 1 === totalQuestions 
+            ? 'Finish Quiz / Terminer le Quiz 🏁' 
+            : 'Next Question / Question Suivante ➔'}
         </button>
       )}
 
       {/* Keyboard Shortcuts Hint */}
       <div className="keyboard-hint">
-        Raccourcis clavier : Utilisez <span className="keyboard-key">1</span>-<span className="keyboard-key">4</span> pour répondre. Appuyez sur <span className="keyboard-key">Espace</span> pour prononcer le mot. Appuyez sur <span className="keyboard-key">Entrée</span> pour continuer.
+        Keyboard Shortcuts: Use <span className="keyboard-key">1</span>-<span className="keyboard-key">4</span> to answer. Press <span className="keyboard-key">Space</span> to pronounce. Press <span className="keyboard-key">Enter</span> to continue.
+        <div style={{ fontSize: '0.75rem', marginTop: '0.2rem', opacity: 0.8 }}>
+          Raccourcis : Utilisez <span className="keyboard-key">1</span>-<span className="keyboard-key">4</span> pour répondre. Appuyez sur <span className="keyboard-key">Espace</span> pour prononcer. Appuyez sur <span className="keyboard-key">Entrée</span> pour continuer.
+        </div>
       </div>
     </div>
   );

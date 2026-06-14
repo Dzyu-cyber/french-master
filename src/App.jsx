@@ -28,15 +28,15 @@ function getTodayDateString() {
 
 export default function App() {
   // --- Persistent State (LocalStorage) ---
-  const [theme, setTheme] = useLocalStorage('french-trainer-theme', 'dark');
-  const [stats, setStats] = useLocalStorage('french-trainer-stats', { attempts: 0, correct: 0, incorrect: 0 });
-  const [lastSessionConfig, setLastSessionConfig] = useLocalStorage('french-trainer-last-session', {
-    direction: 'fr-en',
+  const [theme, setTheme] = useLocalStorage('french-master-theme', 'dark');
+  const [stats, setStats] = useLocalStorage('french-master-stats', { attempts: 0, correct: 0, incorrect: 0 });
+  const [lastSessionConfig, setLastSessionConfig] = useLocalStorage('french-master-last-session', {
+    direction: 'en-fr', // Default English ➔ French
     mode: 'mc',
-    shuffle: true,
+    shuffle: false,
   });
-  const [streak, setStreak] = useLocalStorage('french-trainer-streak', 0);
-  const [lastActiveDate, setLastActiveDate] = useLocalStorage('french-trainer-last-active-date', '');
+  const [streak, setStreak] = useLocalStorage('french-master-streak', 0);
+  const [lastActiveDate, setLastActiveDate] = useLocalStorage('french-master-last-active-date', '');
 
   // --- Transient State (Memory) ---
   const [view, setView] = useState('home'); // 'home' | 'quiz' | 'summary' | 'stats'
@@ -58,7 +58,7 @@ export default function App() {
     const yesterdayStr = getYesterdayDateString();
 
     if (lastActiveDate !== '' && lastActiveDate !== todayStr && lastActiveDate !== yesterdayStr) {
-      // Practiced before, but streak is broken (it wasn't active today or yesterday)
+      // Practice streak was broken
       setStreak(0);
     }
   }, [lastActiveDate, setStreak]);
@@ -70,47 +70,34 @@ export default function App() {
   };
 
   /**
-   * Initializes a new quiz session with custom range, mode, direction, and shuffle settings.
+   * Initializes a new quiz session with custom range, mode, and direction.
+   * Shuffle is removed per user request: questions are sequential.
    */
   const handleStartQuiz = (config) => {
-    // 1. Save config details for future prefill
     setLastSessionConfig(config);
     setSessionConfig(config);
     setIsMistakesReviewMode(false);
 
-    // 2. Select words from vocabulary based on 1-indexed range
+    // Select words based on 1-indexed range (no shuffle)
     let words = vocabularyData.slice(config.range.start - 1, config.range.end);
     
-    // Fallback if range fails
     if (words.length === 0) {
-      words = vocabularyData.slice(0, 20);
+      words = vocabularyData.slice(0, 40);
     }
 
-    // 3. Shuffle if requested
-    if (config.shuffle) {
-      words = [...words].sort(() => 0.5 - Math.random());
-    }
-
-    // 4. Reset session stats
     setSessionWords(words);
     setCurrentWordIndex(0);
     setSessionScore(0);
     setIncorrectWords([]);
-
-    // 5. Route to quiz
     setView('quiz');
   };
 
   /**
-   * Starts a special review session testing ONLY the mistakes made in the current session.
+   * Starts a review session testing ONLY the mistakes in the current session.
    */
   const handleReviewIncorrect = () => {
     setIsMistakesReviewMode(true);
-    let words = [...incorrectWords];
-    
-    if (sessionConfig?.shuffle) {
-      words = words.sort(() => 0.5 - Math.random());
-    }
+    const words = [...incorrectWords]; // Retain order of errors
 
     setSessionWords(words);
     setCurrentWordIndex(0);
@@ -120,7 +107,7 @@ export default function App() {
   };
 
   /**
-   * Restart current session settings (re-shuffling words if applicable).
+   * Restart current session settings.
    */
   const handleRestartSession = () => {
     if (isMistakesReviewMode) {
@@ -159,7 +146,6 @@ export default function App() {
     if (isCorrectAnswer) {
       setSessionScore(prev => prev + 1);
     } else {
-      // Store word in mistakes array if not already present
       setIncorrectWords(prev => {
         if (prev.some(w => w.french === word.french)) return prev;
         return [...prev, word];
@@ -193,6 +179,7 @@ export default function App() {
             totalVocab={vocabularyData.length}
             lastSession={lastSessionConfig}
             onStartQuiz={handleStartQuiz}
+            onViewStats={() => setView('stats')}
           />
         );
       
@@ -223,13 +210,12 @@ export default function App() {
               currentWord={currentWord}
               rangeWords={rangeWords}
               allWords={vocabularyData}
-              direction={sessionConfig?.direction || 'fr-en'}
+              direction={sessionConfig?.direction || 'en-fr'}
               currentIndex={currentWordIndex}
               totalQuestions={sessionWords.length}
               score={sessionScore}
               onAnswer={handleAnswerEvaluated}
               onNext={handleNextQuestion}
-              theme={theme}
             />
           );
         }
@@ -243,6 +229,7 @@ export default function App() {
             onRestart={handleRestartSession}
             onReviewIncorrect={handleReviewIncorrect}
             onGoHome={() => setView('home')}
+            streak={streak}
           />
         );
 
@@ -263,11 +250,16 @@ export default function App() {
 
   return (
     <>
+      {/* Moving background glow blobs */}
+      <div className="glow-blob-container">
+        <div className="glow-blob glow-blob-1"></div>
+        <div className="glow-blob glow-blob-2"></div>
+        <div className="glow-blob glow-blob-3"></div>
+      </div>
+
       <Header
         theme={theme}
         toggleTheme={handleToggleTheme}
-        onViewStats={() => setView('stats')}
-        streak={streak}
         onGoHome={() => setView('home')}
       />
 
@@ -280,10 +272,10 @@ export default function App() {
         padding: '1.5rem 0',
         fontSize: '0.8rem',
         color: 'var(--text-muted)',
-        fontWeight: '500',
+        fontWeight: '600',
         letterSpacing: '0.5px'
       }}>
-        © {new Date().getFullYear()} French Trainer. Fait avec ❤️ pour les étudiants de français.
+        © {new Date().getFullYear()} French Master. Made with ❤️ for language learners.
       </footer>
     </>
   );

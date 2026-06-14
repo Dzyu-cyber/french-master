@@ -12,7 +12,7 @@ export default function Stats({ stats, onReset, onBack, totalVocab }) {
   const accuracy = attempts > 0 ? Math.round((correct / attempts) * 100) : 0;
 
   const handleResetClick = () => {
-    if (window.confirm("Êtes-vous sûr ? Are you sure you want to reset all your statistics? This cannot be undone.")) {
+    if (window.confirm("Are you sure you want to reset all your statistics? This cannot be undone. / Êtes-vous sûr de vouloir réinitialiser vos statistiques ?")) {
       onReset();
     }
   };
@@ -20,17 +20,17 @@ export default function Stats({ stats, onReset, onBack, totalVocab }) {
   return (
     <div className="card" style={{ animationDelay: '0.1s' }}>
       <h2 style={{ marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-        <span>📊</span> Statistiques
+        <span>📊</span> Statistics / Statistiques
       </h2>
       <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
-        Suivez vos progrès au fil du temps. Track your progress over time.
+        Track your progress over time. / Suivez vos progrès au fil du temps.
       </p>
 
       <div className="stats-header-info">
         <div className="stats-total-badge">
           <div style={{ fontSize: '1.5rem', fontWeight: '800' }}>{totalVocab}</div>
-          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '600' }}>
-            Mots disponibles / Words Available
+          <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', fontWeight: '700' }}>
+            Words Available / Mots disponibles
           </div>
         </div>
       </div>
@@ -38,7 +38,7 @@ export default function Stats({ stats, onReset, onBack, totalVocab }) {
       <div className="stats-grid">
         <div className="stat-item">
           <div className="stat-value">{attempts}</div>
-          <div className="stat-label">Tentatives / Attempts</div>
+          <div className="stat-label">Attempts / Tentatives</div>
         </div>
         <div className="stat-item">
           <div className="stat-value" style={{ color: 'var(--success)' }}>{correct}</div>
@@ -52,16 +52,16 @@ export default function Stats({ stats, onReset, onBack, totalVocab }) {
           <div className="stat-value" style={{ color: accuracy >= 70 ? 'var(--success)' : accuracy >= 40 ? 'var(--warning)' : 'var(--error)' }}>
             {accuracy}%
           </div>
-          <div className="stat-label">Précision / Accuracy</div>
+          <div className="stat-label">Accuracy / Précision</div>
         </div>
       </div>
 
       <div className="btn-group">
         <button onClick={onBack} className="btn btn-secondary">
-          🏠 Retour / Home
+          🏠 Home / Retour
         </button>
         <button onClick={handleResetClick} className="btn btn-secondary" style={{ color: 'var(--error)', borderColor: 'rgba(244, 63, 94, 0.2)' }}>
-          🗑️ Réinitialiser / Reset
+          🗑️ Reset / Réinitialiser
         </button>
       </div>
     </div>

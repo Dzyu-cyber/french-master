@@ -2,39 +2,23 @@ import React from 'react';
 
 /**
  * Top Navigation Header.
+ * Displays the main app heading centered and a floating theme toggle.
  * @param {string} theme - 'light' | 'dark'
  * @param {function} toggleTheme - Callback to switch theme
- * @param {function} onViewStats - Callback to navigate to statistics screen
- * @param {number} streak - Daily streak count
  * @param {function} onGoHome - Callback to return to home view
  */
-export default function Header({ theme, toggleTheme, onViewStats, streak, onGoHome }) {
+export default function Header({ theme, toggleTheme, onGoHome }) {
   return (
     <header>
       <h1 onClick={onGoHome} title="Retour à l'accueil / Back to Home">
-        <span>🇨🇵</span> French Trainer
+        <span>🇨🇵</span> French Master
       </h1>
       
       <div className="header-controls">
-        {streak > 0 && (
-          <div className="streak-badge" title={`${streak} jours d'affilée / ${streak} day streak`}>
-            <span>🔥</span> {streak}
-          </div>
-        )}
-        
-        <button 
-          onClick={onViewStats} 
-          className="icon-btn" 
-          title="Statistiques / Stats"
-          aria-label="View Statistics"
-        >
-          📊
-        </button>
-        
         <button 
           onClick={toggleTheme} 
           className="icon-btn" 
-          title={theme === 'dark' ? 'Mode clair / Light Mode' : 'Mode sombre / Dark Mode'}
+          title={theme === 'dark' ? 'Light Mode / Mode clair' : 'Dark Mode / Mode sombre'}
           aria-label="Toggle Dark Mode"
         >
           {theme === 'dark' ? '☀️' : '🌙'}
