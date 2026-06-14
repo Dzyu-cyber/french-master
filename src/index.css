@@ -809,3 +809,46 @@ header h1:hover {
   pointer-events: none;
   z-index: 1000;
 }
+
+/* Study Guide Tables & Scrollbar utilities */
+.manual-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.manual-table th {
+  background: var(--border-element);
+  color: var(--primary);
+  padding: 0.65rem 0.85rem;
+  font-weight: 800;
+  text-align: left;
+  border-bottom: 2px solid var(--primary);
+}
+
+.manual-table td {
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--border-element);
+  color: var(--text-main);
+}
+
+.manual-table tr:last-child td {
+  border-bottom: none;
+}
+
+.manual-table tr:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

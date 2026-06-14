@@ -8,6 +8,7 @@ import Home from './components/Home';
 import QuizMC from './components/QuizMC';
 import QuizTyping from './components/QuizTyping';
 import Summary from './components/Summary';
+import Manual from './components/Manual';
 
 /**
  * Helper to get yesterday's date string in YYYY-MM-DD format.
@@ -36,7 +37,7 @@ export default function App() {
   const [lastActiveDate, setLastActiveDate] = useLocalStorage('french-master-last-active-date', '');
 
   // --- Transient State (Memory) ---
-  const [view, setView] = useState('home'); // 'home' | 'quiz' | 'summary'
+  const [view, setView] = useState('home'); // 'home' | 'quiz' | 'summary' | 'manual'
   const [sessionConfig, setSessionConfig] = useState(null);
   const [sessionWords, setSessionWords] = useState([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -155,6 +156,7 @@ export default function App() {
             totalVocab={vocabularyData.length}
             lastSession={lastSessionConfig}
             onStartQuiz={handleStartQuiz}
+            onViewManual={() => setView('manual')}
           />
         );
       
@@ -206,6 +208,9 @@ export default function App() {
             streak={streak}
           />
         );
+
+      case 'manual':
+        return <Manual onBack={() => setView('home')} />;
 
       default:
         return <div className="card">Error: View not found.</div>;

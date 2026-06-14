@@ -5,8 +5,9 @@ import React, { useState, useEffect } from 'react';
  * @param {number} totalVocab - Size of the vocabulary dataset
  * @param {object} lastSession - Saved options from last session to prefill
  * @param {function} onStartQuiz - Callback when quiz is started with selected options
+ * @param {function} onViewManual - Callback to open the learning manual / study guide
  */
-export default function Home({ totalVocab, lastSession, onStartQuiz }) {
+export default function Home({ totalVocab, lastSession, onStartQuiz, onViewManual }) {
   // Load initial states, default to French ➔ English first
   const [direction, setDirection] = useState(lastSession?.direction || 'fr-en');
   const [mode, setMode] = useState(lastSession?.mode || 'mc');
@@ -54,11 +55,9 @@ export default function Home({ totalVocab, lastSession, onStartQuiz }) {
       const preset = presets.find(p => p.label === selectedPreset);
       if (preset) {
         if (preset.start > totalVocab) {
-          // If range is completely empty on the current dataset
           setErrorMsg(`Selected range (${preset.label}) exceeds current vocabulary size (${totalVocab} words). Please add more words to vocabulary.json.`);
           setWordCount(0);
         } else {
-          // Clamp the end to total vocab if it spans beyond the currently loaded count
           const actualEnd = Math.min(preset.end, totalVocab);
           setWordCount(actualEnd - preset.start + 1);
           setErrorMsg('');
@@ -136,7 +135,7 @@ export default function Home({ totalVocab, lastSession, onStartQuiz }) {
         </button>
       </div>
 
-      {/* Range Selection Type Tabs */}
+      {/* Word Range Selection */}
       <h3 style={{ marginBottom: '0.5rem', fontSize: '1.1rem', fontWeight: '800' }}>
         🎯 Word Range / Sélection de l'intervalle
       </h3>
@@ -239,14 +238,24 @@ export default function Home({ totalVocab, lastSession, onStartQuiz }) {
         📝 Words Selected / Mots sélectionnés: <span style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: '900' }}>{wordCount}</span>
       </div>
 
-      {/* Start Button (Stats button removed) */}
-      <button
-        onClick={handleStart}
-        className="btn btn-primary"
-        disabled={!!errorMsg || wordCount === 0}
-      >
-        🎓 Start Quiz / Commencer le Quiz
-      </button>
+      {/* Action Buttons */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+        <button
+          onClick={handleStart}
+          className="btn btn-primary"
+          disabled={!!errorMsg || wordCount === 0}
+        >
+          🎓 Start Quiz / Commencer le Quiz
+        </button>
+
+        <button
+          type="button"
+          onClick={onViewManual}
+          className="btn btn-secondary"
+        >
+          📖 Open Study Guide / Ouvrir le guide d'étude
+        </button>
+      </div>
     </div>
   );
 }
