@@ -27,7 +27,6 @@ function getTodayDateString() {
 
 export default function App() {
   // --- Persistent State (LocalStorage) ---
-  const [theme, setTheme] = useLocalStorage('french-master-theme', 'dark');
   const [lastSessionConfig, setLastSessionConfig] = useLocalStorage('french-master-last-session', {
     direction: 'fr-en', // Default French ➔ English
     mode: 'mc',
@@ -45,11 +44,6 @@ export default function App() {
   const [incorrectWords, setIncorrectWords] = useState([]);
   const [isMistakesReviewMode, setIsMistakesReviewMode] = useState(false);
 
-  // --- Theme Sync Effect ---
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
   // --- Streak Verification Effect (on startup) ---
   useEffect(() => {
     const todayStr = getTodayDateString();
@@ -61,10 +55,6 @@ export default function App() {
   }, [lastActiveDate, setStreak]);
 
   // --- Actions & Handlers ---
-  
-  const handleToggleTheme = () => {
-    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'));
-  };
 
   /**
    * Initializes a new quiz session.
@@ -231,11 +221,7 @@ export default function App() {
         <div className="glow-blob glow-blob-3"></div>
       </div>
 
-      <Header
-        theme={theme}
-        toggleTheme={handleToggleTheme}
-        onGoHome={() => setView('home')}
-      />
+      <Header onGoHome={() => setView('home')} />
 
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         {renderView()}
