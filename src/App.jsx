@@ -152,6 +152,19 @@ export default function App() {
     }
   };
 
+  /**
+   * Handles returning home from header click, with quiz confirmation.
+   */
+  const handleHeaderGoHome = () => {
+    if (view === 'quiz') {
+      if (window.confirm("Are you sure you want to exit the quiz? Your current progress will be lost. / Êtes-vous sûr de vouloir quitter le quiz ?")) {
+        setView('home');
+      }
+    } else {
+      setView('home');
+    }
+  };
+
   // --- Router Render Setup ---
   const renderView = () => {
     switch (view) {
@@ -183,6 +196,7 @@ export default function App() {
               score={sessionScore}
               onAnswer={handleAnswerEvaluated}
               onNext={handleNextQuestion}
+              onExit={() => setView('home')}
             />
           );
         } else {
@@ -197,6 +211,7 @@ export default function App() {
               score={sessionScore}
               onAnswer={handleAnswerEvaluated}
               onNext={handleNextQuestion}
+              onExit={() => setView('home')}
             />
           );
         }
@@ -231,7 +246,7 @@ export default function App() {
         <div className="glow-blob glow-blob-3"></div>
       </div>
 
-      <Header onGoHome={() => setView('home')} />
+      <Header onGoHome={handleHeaderGoHome} />
 
       <main style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
         {renderView()}

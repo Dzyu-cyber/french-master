@@ -9,6 +9,7 @@ import React, { useState, useEffect, useRef } from 'react';
  * @param {number} score - Current correct count
  * @param {function} onAnswer - Callback when an answer is evaluated (isCorrect, answeredWord)
  * @param {function} onNext - Callback to load next question
+ * @param {function} onExit - Callback to exit the quiz session back to Home
  */
 export default function QuizTyping({
   currentWord,
@@ -17,7 +18,8 @@ export default function QuizTyping({
   totalQuestions,
   score,
   onAnswer,
-  onNext
+  onNext,
+  onExit
 }) {
   const [userInput, setUserInput] = useState('');
   const [isAnswered, setIsAnswered] = useState(false);
@@ -69,7 +71,6 @@ export default function QuizTyping({
     const typed = userInput.trim().toLowerCase();
     const solution = correctTranslation.trim().toLowerCase();
 
-    // Support multiple translations separated by slashes (e.g. "to do / to make")
     const possibleSolutions = solution.split('/').map(s => s.trim());
     const isAnswerCorrect = possibleSolutions.some(s => s === typed);
 
@@ -107,6 +108,12 @@ export default function QuizTyping({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [userInput, isAnswered, correctTranslation, onNext]);
 
+  const handleExitClick = () => {
+    if (window.confirm("Are you sure you want to exit the quiz? Your current progress will be lost. / Êtes-vous sûr de vouloir quitter le quiz ?")) {
+      onExit();
+    }
+  };
+
   // Calculate Accuracy
   const answeredCount = currentIndex;
   const currentAccuracy = answeredCount > 0 ? Math.round((score / answeredCount) * 100) : 0;
@@ -114,10 +121,21 @@ export default function QuizTyping({
 
   return (
     <div className={`card ${hasShaker ? 'shake' : ''}`} style={{ animationDelay: '0.1s' }}>
-      {/* Quiz Progress & Stats */}
-      <div className="quiz-header">
-        <div>Question {currentIndex + 1} of {totalQuestions} / Question {currentIndex + 1} sur {totalQuestions}</div>
-        <div>Score: {score} | Accuracy: {currentAccuracy}% / Précision: {currentAccuracy}%</div>
+      {/* Quiz Progress & Stats with Exit Button */}
+      <div className="quiz-header" style={{ display: 'grid', gridTemplateColumns: 'auto 1fr auto', alignItems: 'center', gap: '0.75rem', width: '100%', marginBottom: '1.5rem' }}>
+        <button 
+          onClick={handleExitClick} 
+          className="btn btn-secondary" 
+          style={{ width: 'auto', padding: '0.45rem 0.85rem', fontSize: '0.8rem', margin: 0, fontWeight: '700' }}
+        >
+          ⬅ Back / Retour
+        </button>
+        <div style={{ textAlign: 'center', fontWeight: '700', fontSize: '0.85rem', color: 'var(--text-main)' }}>
+          Question {currentIndex + 1} of {totalQuestions}
+        </div>
+        <div style={{ textAlign: 'right', fontWeight: '700', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+          Score: {score} ({currentAccuracy}%)
+        </div>
       </div>
 
       <div className="progress-container">
