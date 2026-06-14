@@ -10,8 +10,8 @@ import React from 'react';
 export default function Header({ theme, toggleTheme, onGoHome }) {
   return (
     <header>
-      <h1 onClick={onGoHome} title="Retour à l'accueil / Back to Home">
-        <span>🇨🇵</span> French Master
+      <h1 onClick={onGoHome} title="Back to Home / Retour à l'accueil">
+        <span className="flag-badge" style={{ marginRight: '0.65rem' }}></span>French Master
       </h1>
       
       <div className="header-controls">

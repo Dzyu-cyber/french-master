@@ -5,11 +5,10 @@ import React, { useState, useEffect } from 'react';
  * @param {number} totalVocab - Size of the vocabulary dataset
  * @param {object} lastSession - Saved options from last session to prefill
  * @param {function} onStartQuiz - Callback when quiz is started with selected options
- * @param {function} onViewStats - Callback to view lifetime statistics
  */
-export default function Home({ totalVocab, lastSession, onStartQuiz, onViewStats }) {
-  // Load initial states from lastSession values or defaults
-  const [direction, setDirection] = useState(lastSession?.direction || 'en-fr'); // Default to English ➔ French
+export default function Home({ totalVocab, lastSession, onStartQuiz }) {
+  // Load initial states, default to French ➔ English first
+  const [direction, setDirection] = useState(lastSession?.direction || 'fr-en');
   const [mode, setMode] = useState(lastSession?.mode || 'mc');
   
   // Range selection states
@@ -37,11 +36,11 @@ export default function Home({ totalVocab, lastSession, onStartQuiz, onViewStats
       });
     }
     
-    // Add full set preset
+    // All preset shows 1-600
     presets.push({
-      label: `All / Tout (1 - ${totalVocab})`,
+      label: `All / Tout (1 - 600)`,
       start: 1,
-      end: totalVocab
+      end: 600
     });
     
     return presets;
@@ -55,6 +54,7 @@ export default function Home({ totalVocab, lastSession, onStartQuiz, onViewStats
       const preset = presets.find(p => p.label === selectedPreset);
       if (preset) {
         if (preset.start > totalVocab) {
+          // If range is completely empty on the current dataset
           setErrorMsg(`Selected range (${preset.label}) exceeds current vocabulary size (${totalVocab} words). Please add more words to vocabulary.json.`);
           setWordCount(0);
         } else {
@@ -108,31 +108,31 @@ export default function Home({ totalVocab, lastSession, onStartQuiz, onViewStats
     onStartQuiz({
       direction,
       mode,
-      shuffle: false, // Shuffle removed as per requirement, questions asked in range order
+      shuffle: false,
       range: { start, end }
     });
   };
 
   return (
     <div className="card" style={{ animationDelay: '0.05s' }}>
-      {/* Learning Direction */}
+      {/* Learning Direction (French ➔ English first) */}
       <h3 style={{ marginBottom: '0.5rem', fontSize: '1.1rem', fontWeight: '800' }}>
         🔄 Learning Direction / Direction d'apprentissage
       </h3>
       <div className="direction-tabs">
         <button
           type="button"
-          className={`direction-tab ${direction === 'en-fr' ? 'active' : ''}`}
-          onClick={() => setDirection('en-fr')}
-        >
-          English ➔ French
-        </button>
-        <button
-          type="button"
           className={`direction-tab ${direction === 'fr-en' ? 'active' : ''}`}
           onClick={() => setDirection('fr-en')}
         >
           French ➔ English
+        </button>
+        <button
+          type="button"
+          className={`direction-tab ${direction === 'en-fr' ? 'active' : ''}`}
+          onClick={() => setDirection('en-fr')}
+        >
+          English ➔ French
         </button>
       </div>
 
@@ -239,23 +239,14 @@ export default function Home({ totalVocab, lastSession, onStartQuiz, onViewStats
         📝 Words Selected / Mots sélectionnés: <span style={{ color: 'var(--primary)', fontSize: '1.2rem', fontWeight: '900' }}>{wordCount}</span>
       </div>
 
-      {/* Start and Stats Buttons */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-        <button
-          onClick={handleStart}
-          className="btn btn-primary"
-          disabled={!!errorMsg || wordCount === 0}
-        >
-          🎓 Start Quiz / Commencer le Quiz
-        </button>
-        
-        <button
-          onClick={onViewStats}
-          className="btn btn-secondary"
-        >
-          📊 View Statistics / Voir les statistiques
-        </button>
-      </div>
+      {/* Start Button (Stats button removed) */}
+      <button
+        onClick={handleStart}
+        className="btn btn-primary"
+        disabled={!!errorMsg || wordCount === 0}
+      >
+        🎓 Start Quiz / Commencer le Quiz
+      </button>
     </div>
   );
 }

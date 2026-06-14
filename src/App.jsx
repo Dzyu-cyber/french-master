@@ -8,7 +8,6 @@ import Home from './components/Home';
 import QuizMC from './components/QuizMC';
 import QuizTyping from './components/QuizTyping';
 import Summary from './components/Summary';
-import Stats from './components/Stats';
 
 /**
  * Helper to get yesterday's date string in YYYY-MM-DD format.
@@ -29,9 +28,8 @@ function getTodayDateString() {
 export default function App() {
   // --- Persistent State (LocalStorage) ---
   const [theme, setTheme] = useLocalStorage('french-master-theme', 'dark');
-  const [stats, setStats] = useLocalStorage('french-master-stats', { attempts: 0, correct: 0, incorrect: 0 });
   const [lastSessionConfig, setLastSessionConfig] = useLocalStorage('french-master-last-session', {
-    direction: 'en-fr', // Default English ➔ French
+    direction: 'fr-en', // Default French ➔ English
     mode: 'mc',
     shuffle: false,
   });
@@ -39,7 +37,7 @@ export default function App() {
   const [lastActiveDate, setLastActiveDate] = useLocalStorage('french-master-last-active-date', '');
 
   // --- Transient State (Memory) ---
-  const [view, setView] = useState('home'); // 'home' | 'quiz' | 'summary' | 'stats'
+  const [view, setView] = useState('home'); // 'home' | 'quiz' | 'summary'
   const [sessionConfig, setSessionConfig] = useState(null);
   const [sessionWords, setSessionWords] = useState([]);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -58,7 +56,6 @@ export default function App() {
     const yesterdayStr = getYesterdayDateString();
 
     if (lastActiveDate !== '' && lastActiveDate !== todayStr && lastActiveDate !== yesterdayStr) {
-      // Practice streak was broken
       setStreak(0);
     }
   }, [lastActiveDate, setStreak]);
@@ -70,16 +67,18 @@ export default function App() {
   };
 
   /**
-   * Initializes a new quiz session with custom range, mode, and direction.
-   * Shuffle is removed per user request: questions are sequential.
+   * Initializes a new quiz session.
+   * Shuffle is false: questions appear in order of range.
    */
   const handleStartQuiz = (config) => {
     setLastSessionConfig(config);
     setSessionConfig(config);
     setIsMistakesReviewMode(false);
 
-    // Select words based on 1-indexed range (no shuffle)
-    let words = vocabularyData.slice(config.range.start - 1, config.range.end);
+    // Select words based on range. Clamp end to vocabulary size.
+    const startIdx = Math.max(0, config.range.start - 1);
+    const endIdx = Math.min(vocabularyData.length, config.range.end);
+    let words = vocabularyData.slice(startIdx, endIdx);
     
     if (words.length === 0) {
       words = vocabularyData.slice(0, 40);
@@ -93,11 +92,11 @@ export default function App() {
   };
 
   /**
-   * Starts a review session testing ONLY the mistakes in the current session.
+   * Starts a review session testing ONLY mistakes.
    */
   const handleReviewIncorrect = () => {
     setIsMistakesReviewMode(true);
-    const words = [...incorrectWords]; // Retain order of errors
+    const words = [...incorrectWords];
 
     setSessionWords(words);
     setCurrentWordIndex(0);
@@ -107,7 +106,7 @@ export default function App() {
   };
 
   /**
-   * Restart current session settings.
+   * Restart current session.
    */
   const handleRestartSession = () => {
     if (isMistakesReviewMode) {
@@ -120,17 +119,10 @@ export default function App() {
   };
 
   /**
-   * Records cumulative lifetime performance and updates user active streaks.
+   * Evaluates correctness and updates streak.
    */
   const handleAnswerEvaluated = (isCorrectAnswer, word) => {
-    // 1. Update Lifetime Stats
-    setStats(prev => ({
-      attempts: prev.attempts + 1,
-      correct: prev.correct + (isCorrectAnswer ? 1 : 0),
-      incorrect: prev.incorrect + (isCorrectAnswer ? 0 : 1),
-    }));
-
-    // 2. Update Streak Logic
+    // Update Streak Logic
     const todayStr = getTodayDateString();
     if (lastActiveDate !== todayStr) {
       const yesterdayStr = getYesterdayDateString();
@@ -142,7 +134,7 @@ export default function App() {
       setLastActiveDate(todayStr);
     }
 
-    // 3. Update Session States
+    // Update Session States
     if (isCorrectAnswer) {
       setSessionScore(prev => prev + 1);
     } else {
@@ -164,12 +156,6 @@ export default function App() {
     }
   };
 
-  const handleResetStats = () => {
-    setStats({ attempts: 0, correct: 0, incorrect: 0 });
-    setStreak(0);
-    setLastActiveDate('');
-  };
-
   // --- Router Render Setup ---
   const renderView = () => {
     switch (view) {
@@ -179,7 +165,6 @@ export default function App() {
             totalVocab={vocabularyData.length}
             lastSession={lastSessionConfig}
             onStartQuiz={handleStartQuiz}
-            onViewStats={() => setView('stats')}
           />
         );
       
@@ -187,7 +172,6 @@ export default function App() {
         const currentWord = sessionWords[currentWordIndex];
         if (!currentWord) return <div className="card">Loading vocabulary...</div>;
         
-        // Slice range words or default to whole vocab for MC distractors
         const rangeWords = sessionConfig 
           ? vocabularyData.slice(sessionConfig.range.start - 1, sessionConfig.range.end)
           : vocabularyData;
@@ -210,7 +194,7 @@ export default function App() {
               currentWord={currentWord}
               rangeWords={rangeWords}
               allWords={vocabularyData}
-              direction={sessionConfig?.direction || 'en-fr'}
+              direction={sessionConfig?.direction || 'fr-en'}
               currentIndex={currentWordIndex}
               totalQuestions={sessionWords.length}
               score={sessionScore}
@@ -230,16 +214,6 @@ export default function App() {
             onReviewIncorrect={handleReviewIncorrect}
             onGoHome={() => setView('home')}
             streak={streak}
-          />
-        );
-
-      case 'stats':
-        return (
-          <Stats
-            stats={stats}
-            onReset={handleResetStats}
-            onBack={() => setView('home')}
-            totalVocab={vocabularyData.length}
           />
         );
 
